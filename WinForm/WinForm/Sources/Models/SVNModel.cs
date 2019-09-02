@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SVNTool
 {
@@ -87,6 +86,18 @@ namespace SVNTool
         {
             cfg.list.Remove(vo);
             Save();
+        }
+
+        public UpdateItemVO Get(string key)
+        {
+            for (int i = 0; i < cfg.list.Count; i++)
+            {
+                if (cfg.list[i].key == key)
+                {
+                    return cfg.list[i];
+                }
+            }
+            return null;
         }
 
         public SvnUpdateArgs UpdateSVN(string svnPath, out SvnUpdateResult result)

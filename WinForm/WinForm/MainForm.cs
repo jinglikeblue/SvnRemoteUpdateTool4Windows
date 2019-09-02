@@ -7,7 +7,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinForm
@@ -15,10 +14,26 @@ namespace WinForm
     public partial class MainForm : Form
     {
         public MainForm()
-        {
+        {            
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             RefreshList();
+            One.Log.onLog += Log_onLog;
+        }
+
+        List<string> _consoleLog = new List<string>();
+
+        private void Log_onLog(string content)
+        {
+            _consoleLog.Add(content);
+            while (_consoleLog.Count > 1000)
+            {
+                _consoleLog.RemoveAt(0);
+            }
+            textConsole.Lines = _consoleLog.ToArray();            
+            textConsole.SelectionStart = textConsole.Text.Length;
+            textConsole.SelectionLength = 0;
+            textConsole.ScrollToCaret();
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)

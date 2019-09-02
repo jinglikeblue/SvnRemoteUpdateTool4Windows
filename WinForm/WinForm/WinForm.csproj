@@ -8,13 +8,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>WinForm</RootNamespace>
     <AssemblyName>WinForm</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,16 +32,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpSvn">
-      <HintPath>libs\sharpsvn\SharpSvn.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpSvn.resources">
-      <HintPath>libs\sharpsvn\resources\zh-CN\SharpSvn.resources.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpSvn.UI">
-      <HintPath>libs\sharpsvn\SharpSvn.UI.dll</HintPath>
+    <Reference Include="SharpSvn, Version=1.7017.3288.76, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\SharpSvn\SharpSvn.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,7 +47,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -76,6 +72,25 @@
     <Compile Include="Sources\Commands\ServerStartCommand.cs" />
     <Compile Include="Sources\Global.cs" />
     <Compile Include="Sources\Models\SVNModel.cs" />
+    <Compile Include="Sources\One\Data\ByteArray.cs" />
+    <Compile Include="Sources\One\Defines\Delegates.cs" />
+    <Compile Include="Sources\One\Net\IChannel.cs" />
+    <Compile Include="Sources\One\Net\Tcp\TcpChannel.cs" />
+    <Compile Include="Sources\One\Net\Tcp\TcpClient.cs" />
+    <Compile Include="Sources\One\Net\Tcp\TcpProtocolProcess.cs" />
+    <Compile Include="Sources\One\Net\Tcp\TcpServer.cs" />
+    <Compile Include="Sources\One\Net\Udp\UdpClient.cs" />
+    <Compile Include="Sources\One\Net\Udp\UdpListener.cs" />
+    <Compile Include="Sources\One\Net\Udp\UdpSendChannel.cs" />
+    <Compile Include="Sources\One\Net\Udp\UdpServer.cs" />
+    <Compile Include="Sources\One\Net\WebSocket\WebSocketChannel.cs" />
+    <Compile Include="Sources\One\Net\WebSocket\WebSocketClient.cs" />
+    <Compile Include="Sources\One\Net\WebSocket\WebSocketProtocolProcess.cs" />
+    <Compile Include="Sources\One\Net\WebSocket\WebSocketServer.cs" />
+    <Compile Include="Sources\One\Util\Log.cs" />
+    <Compile Include="Sources\One\Util\ThreadSyncActions.cs" />
+    <Compile Include="Sources\ValueObjects\Protocol\RemoteRequestVO.cs" />
+    <Compile Include="Sources\ValueObjects\Protocol\RemoteResponseVO.cs" />
     <Compile Include="Sources\ValueObjects\SVNConfigVO.cs" />
     <Compile Include="TestSVN.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -92,10 +107,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="libs\LitJson\AssemblyInfo.cs.in" />
-    <None Include="libs\sharpsvn\licenses\SharpSvn-Licenses.wxs" />
-    <None Include="libs\sharpsvn\SharpPlink-x64.svnExe" />
-    <None Include="libs\sharpsvn\SharpSvn-DB44-20-x64.svnDll" />
-    <None Include="libs\sharpsvn\SharpSvn.wxs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,44 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="libs\LitJson\LitJSON.csproj" />
-    <Content Include="libs\sharpsvn\licenses\Apr-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\Apr-Util-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\BerkeleyDB-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\Cyrus-Sasl-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\OpenSsl-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\Putty-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\Serf-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\SharpSvn-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\Subversion-License.txt" />
-    <Content Include="libs\sharpsvn\licenses\ZLib-License.txt" />
-    <Content Include="libs\sharpsvn\resources\de\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\es\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\fr\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\it\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\ja\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\ko\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\nb\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\pl\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\pt-BR\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\sv\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\zh-CN\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\resources\zh-TW\SharpSvn.resources.dll" />
-    <Content Include="libs\sharpsvn\SharpSvn.dll" />
-    <Content Include="libs\sharpsvn\SharpSvn.pdb" />
-    <Content Include="libs\sharpsvn\SharpSvn.UI.dll" />
-    <Content Include="libs\sharpsvn\SharpSvn.UI.pdb" />
-    <Content Include="libs\sharpsvn\SharpSvn.UI.xml" />
-    <Content Include="libs\sharpsvn\SharpSvn.xml" />
-    <Content Include="libs\sharpsvn\tag.txt" />
-    <Content Include="libs\sharpsvn\ver.txt" />
-    <Content Include="libs\sharpsvn\_1.8009.3299.43_.txt" />
     <Content Include="Res\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\One\Projects\One\One\One.csproj">
-      <Project>{2941F775-39FA-41E5-8E91-0582159673E9}</Project>
-      <Name>One</Name>
-    </ProjectReference>
+    <Folder Include="libs\sharpsvn\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

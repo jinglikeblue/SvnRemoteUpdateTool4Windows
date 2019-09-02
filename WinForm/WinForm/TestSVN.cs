@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System;
 using SharpSvn;
 using System.Collections.ObjectModel;
@@ -54,11 +53,6 @@ namespace WinForm
         }
 
         private void Scp_Committing(object sender, SvnCommittingEventArgs e)
-        {
-            Console.WriteLine(e.ToString());
-        }
-
-        private void Client_Committed(object sender, SvnCommittedEventArgs e)
         {
             Console.WriteLine(e.ToString());
         }

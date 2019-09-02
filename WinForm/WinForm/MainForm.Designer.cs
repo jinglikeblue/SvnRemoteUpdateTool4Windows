@@ -48,8 +48,11 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textConsole = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // list
@@ -58,13 +61,13 @@
             this.list.ItemHeight = 12;
             this.list.Location = new System.Drawing.Point(20, 22);
             this.list.Name = "list";
-            this.list.Size = new System.Drawing.Size(526, 280);
+            this.list.Size = new System.Drawing.Size(526, 172);
             this.list.TabIndex = 1;
             this.list.SelectedIndexChanged += new System.EventHandler(this.OnListSelectIndexChanged);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(471, 322);
+            this.btnAdd.Location = new System.Drawing.Point(471, 211);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 2;
@@ -86,7 +89,7 @@
             this.groupBox1.Controls.Add(this.list);
             this.groupBox1.Location = new System.Drawing.Point(22, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(727, 397);
+            this.groupBox1.Size = new System.Drawing.Size(727, 287);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "可调用SVN列表";
@@ -118,7 +121,7 @@
             // 
             // btnSelectDir
             // 
-            this.btnSelectDir.Location = new System.Drawing.Point(471, 356);
+            this.btnSelectDir.Location = new System.Drawing.Point(471, 245);
             this.btnSelectDir.Name = "btnSelectDir";
             this.btnSelectDir.Size = new System.Drawing.Size(75, 23);
             this.btnSelectDir.TabIndex = 9;
@@ -128,7 +131,7 @@
             // 
             // textDir
             // 
-            this.textDir.Location = new System.Drawing.Point(143, 357);
+            this.textDir.Location = new System.Drawing.Point(143, 246);
             this.textDir.Name = "textDir";
             this.textDir.Size = new System.Drawing.Size(300, 21);
             this.textDir.TabIndex = 8;
@@ -136,7 +139,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 361);
+            this.label2.Location = new System.Drawing.Point(21, 250);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 12);
             this.label2.TabIndex = 7;
@@ -144,7 +147,7 @@
             // 
             // textKey
             // 
-            this.textKey.Location = new System.Drawing.Point(143, 323);
+            this.textKey.Location = new System.Drawing.Point(143, 212);
             this.textKey.Name = "textKey";
             this.textKey.Size = new System.Drawing.Size(300, 21);
             this.textKey.TabIndex = 6;
@@ -152,7 +155,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 327);
+            this.label1.Location = new System.Drawing.Point(21, 216);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 12);
             this.label1.TabIndex = 5;
@@ -160,7 +163,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(563, 322);
+            this.btnDelete.Location = new System.Drawing.Point(563, 211);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
@@ -225,11 +228,31 @@
             this.exitItem.Size = new System.Drawing.Size(124, 22);
             this.exitItem.Text = "关闭程序";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textConsole);
+            this.groupBox2.Location = new System.Drawing.Point(22, 348);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(727, 350);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "日志信息";
+            // 
+            // textConsole
+            // 
+            this.textConsole.Location = new System.Drawing.Point(20, 32);
+            this.textConsole.Name = "textConsole";
+            this.textConsole.ReadOnly = true;
+            this.textConsole.Size = new System.Drawing.Size(690, 297);
+            this.textConsole.TabIndex = 0;
+            this.textConsole.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 710);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textPort);
             this.Controls.Add(this.btnStart);
@@ -243,6 +266,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,6 +291,8 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem exitItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox textConsole;
     }
 }
 
