@@ -61,7 +61,11 @@ namespace WinForm
 
         private void OnBtnStartClick(object sender, EventArgs e)
         {
+            textPort.Enabled = false;
+            textSecretCode.Enabled = false;
+
             int port = int.Parse(textPort.Text);
+            Global.Ins.secretCode = textSecretCode.Text.Trim();
             new ServerStartCommand(port).Excute();
             btnStart.Enabled = false;
         }
@@ -132,28 +136,14 @@ namespace WinForm
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            if(null == cbPlatofrm.SelectedItem || null == list.SelectedItem)
+            if(null == list.SelectedItem)
             {
-                MessageBox.Show("错误的平台选择");
+                MessageBox.Show("选中要更新的内容");
                 return;
             }
 
             var vo = (list.SelectedItem as UpdateItemVO);
             string svnPath = vo.dir;
-            switch (cbPlatofrm.SelectedIndex)
-            {
-                case 0:
-                    break;
-                case 1:
-                    svnPath += "\\pc";
-                    break;
-                case 2:
-                    svnPath += "\\ios";
-                    break;
-                case 3:
-                    svnPath += "\\android";
-                    break;                     
-            }
 
             SvnUpdateResult result;
             var args = SVNModel.Ins.UpdateSVN(svnPath, out result);
@@ -217,6 +207,11 @@ namespace WinForm
                     Application.Exit();
                 }
             }           
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

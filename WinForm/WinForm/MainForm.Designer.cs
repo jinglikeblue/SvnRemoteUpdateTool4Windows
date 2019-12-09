@@ -34,7 +34,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.cbPlatofrm = new System.Windows.Forms.ComboBox();
             this.btnSelectDir = new System.Windows.Forms.Button();
             this.textDir = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +49,8 @@
             this.exitItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textConsole = new System.Windows.Forms.RichTextBox();
+            this.labelSecretCode = new System.Windows.Forms.Label();
+            this.textSecretCode = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -78,7 +79,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnUpdate);
-            this.groupBox1.Controls.Add(this.cbPlatofrm);
             this.groupBox1.Controls.Add(this.btnSelectDir);
             this.groupBox1.Controls.Add(this.textDir);
             this.groupBox1.Controls.Add(this.label2);
@@ -97,27 +97,13 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(563, 60);
+            this.btnUpdate.Location = new System.Drawing.Point(563, 22);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(147, 24);
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "更新选中项";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
-            // cbPlatofrm
-            // 
-            this.cbPlatofrm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPlatofrm.FormattingEnabled = true;
-            this.cbPlatofrm.Items.AddRange(new object[] {
-            "all",
-            "pc",
-            "ios",
-            "android"});
-            this.cbPlatofrm.Location = new System.Drawing.Point(563, 22);
-            this.cbPlatofrm.Name = "cbPlatofrm";
-            this.cbPlatofrm.Size = new System.Drawing.Size(147, 20);
-            this.cbPlatofrm.TabIndex = 10;
             // 
             // btnSelectDir
             // 
@@ -180,7 +166,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(227, 12);
+            this.btnStart.Location = new System.Drawing.Point(417, 9);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 4;
@@ -190,7 +176,7 @@
             // 
             // textPort
             // 
-            this.textPort.Location = new System.Drawing.Point(112, 13);
+            this.textPort.Location = new System.Drawing.Point(285, 11);
             this.textPort.Name = "textPort";
             this.textPort.Size = new System.Drawing.Size(100, 21);
             this.textPort.TabIndex = 5;
@@ -200,11 +186,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 17);
+            this.label3.Location = new System.Drawing.Point(222, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 6;
-            this.label3.Text = "监听端口：";
+            this.label3.Text = "监听端口";
             // 
             // notifyIcon
             // 
@@ -247,16 +233,36 @@
             this.textConsole.TabIndex = 0;
             this.textConsole.Text = "";
             // 
+            // labelSecretCode
+            // 
+            this.labelSecretCode.AutoSize = true;
+            this.labelSecretCode.Location = new System.Drawing.Point(33, 15);
+            this.labelSecretCode.Name = "labelSecretCode";
+            this.labelSecretCode.Size = new System.Drawing.Size(53, 12);
+            this.labelSecretCode.TabIndex = 9;
+            this.labelSecretCode.Text = "通信密钥";
+            this.labelSecretCode.Click += new System.EventHandler(this.Label4_Click);
+            // 
+            // textSecretCode
+            // 
+            this.textSecretCode.Location = new System.Drawing.Point(92, 11);
+            this.textSecretCode.Name = "textSecretCode";
+            this.textSecretCode.Size = new System.Drawing.Size(100, 21);
+            this.textSecretCode.TabIndex = 8;
+            this.textSecretCode.Text = "abcd1234";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 710);
+            this.Controls.Add(this.labelSecretCode);
+            this.Controls.Add(this.textSecretCode);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textPort);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.textPort);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "SVN远端调用服务";
@@ -287,12 +293,13 @@
         private System.Windows.Forms.TextBox textPort;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.ComboBox cbPlatofrm;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem exitItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox textConsole;
+        private System.Windows.Forms.Label labelSecretCode;
+        private System.Windows.Forms.TextBox textSecretCode;
     }
 }
 

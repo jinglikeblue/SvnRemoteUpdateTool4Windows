@@ -51,7 +51,7 @@ namespace SVNTool
                 var msg = Encoding.UTF8.GetString(data);
                 Log.CI(ConsoleColor.DarkGreen, "收到协议：{0}", msg);
                 var vo  = LitJson.JsonMapper.ToObject<RemoteRequestVO>(msg);
-                if (vo.secretCode.Equals("!QAZ2wsx3edc"))
+                if (vo.secretCode.Equals(Global.Ins.secretCode))
                 {
                     var resp = new RemoteResponseVO();
 

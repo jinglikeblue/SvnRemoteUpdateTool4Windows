@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm", "WinForm\WinForm.csproj", "{D7167F4B-2C0E-41AD-827D-9542FD83CE87}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickSvnCommit", "..\QuickSvnCommit\QuickSvnCommit.csproj", "{83657CF0-6F24-4905-B91F-15C0378B30FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickSvnCommit", "QuickSvnCommit.csproj", "{83657CF0-6F24-4905-B91F-15C0378B30FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D7167F4B-2C0E-41AD-827D-9542FD83CE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7167F4B-2C0E-41AD-827D-9542FD83CE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7167F4B-2C0E-41AD-827D-9542FD83CE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7167F4B-2C0E-41AD-827D-9542FD83CE87}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83657CF0-6F24-4905-B91F-15C0378B30FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83657CF0-6F24-4905-B91F-15C0378B30FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83657CF0-6F24-4905-B91F-15C0378B30FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -26,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AF81F446-6810-42CF-A84A-6C835270BF7E}
+		SolutionGuid = {873A8F2E-CA2D-465E-85E4-09216F3DB323}
 	EndGlobalSection
 EndGlobal
